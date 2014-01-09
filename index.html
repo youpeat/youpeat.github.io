@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html class="no-js">
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>YOUPEAT</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js" ></script>
         <style>
             @font-face {
                 font-family: 'fp-12193';
                 src: url('/public/font/aero_matics_light.eot');
                 src: url('/public/font/aero_matics_light.eot?#iefix') format('embedded-opentype'),
                 url('/public/font/aero_matics_light.woff') format('woff'),
-                url('/public/font//public/font/aero_matics_light.ttf') format('truetype'),
+                url('/public/font/aero_matics_light.ttf') format('truetype'),
                 url('/public/font/aero_matics_light.svg#fp-12193') format('svg');
             }
 
@@ -20,79 +21,89 @@
             img{border:none;}
             a{text-decoration:none;font-family:'fp-12193', sans-serif;}
             ul{list-style:none;}
-            .top-bar{height:30px;background-color:#7ad2c5;}
+            #top-bar{height:30px;background-color:#7ad2c5; margin-bottom:47px;}
             #wrap{background-color:#fff;}
-            #body{margin:0 auto;max-width:880px;}
-            #content{min-height:513px;}
-            #content:after{content:'';display:block;clear:both;}
-            #content .img{float:left;margin-right:150px;position:relative;top:170px;margin-top:-120px;}
-            #content .description{float:left;padding-top:62px;line-height:33px;}
-            #content .description h1{margin:0;padding-bottom:42px;border-bottom:1px solid #67c6b6;text-align:center;}
-            #content .description h2{margin-top:48px;font-size:40px;}
-            #content .description p{margin-top:2px;margin-bottom:6px;font-size:18px;color:#666;}
-            #footer{background-color:#f26581;}
-            #footer .inner{margin:0 auto 50px auto;max-width:880px;padding:33px 0 0 415px;}
-            #footer ul{display:block;margin-bottom:52px;padding:0;overflow:hidden;}
-            #footer ul li.app{margin-right:30px;}
-            #footer ul li{float:left;margin-right:10px;}
+            
+			#content{margin:0 auto;max-width:880px; height:453px;}
+            
+            #content .intro{float:right;line-height:33px;width:460px;}
+            #content .intro h1{padding-bottom:42px;border-bottom:1px solid #67c6b6;text-align:center;}
+            #content .intro h2{margin-top:48px;font-size:40px;}
+            #content .intro p{margin-top:2px;margin-bottom:6px;font-size:18px;color:#666;}
+
+			#preview {float:left;}
+            
+			#footer {margin:0px auto 50px auto;max-width:880px;}
+			#footer .inner{float:right; width:460px; padding-top:48px; padding-bottom:48px;}
+            #footer .app{float:left;margin-right:30px;}
+            #footer #sns {float:left;}
+            #footer #sns a{margin-right:10px;}
             #footer a{font-size:14px;color:#fedde4;}
 
+			#copyright {clear:both; margin-top:50px; text-align:center;}
+
             @media screen and (max-width: 1024px) {
-                #body{width:880px;}
+	            #top-bar{height:15px;}
+				#content{padding-left:10px;padding-right:10px;}
             }
-            @media screen and (max-width: 767px) { 
-                #body{width:auto;}
-                #content{width:auto;}
-                #content .description{padding-top:26px;width:100%;text-align:center;}
-                #content .description h1{padding-bottom:460px;}
-                #content .description h2{margin-top:20px;}
-                #content .description p{padding-left:35px;text-align:left;}
-                #content .img{position:absolute;top:190px;left:0;margin:0;padding:20px 0;width:100%;text-align:center;}
-                #content .img img{height:447px;}
-                #footer .inner{width:auto;padding:0;}
-                #footer li.app{width:100%;margin:0;padding:30px 0 20px;width:100%;text-align:center;}
-                #footer ul{display:table;width:100%;overflow:none;}
-                #footer li{float:none;width:25%;margin:0 !important;padding:0;display:table-cell;text-align:center;}
-                #footer li a{margin:0;padding:0;}
-                #footer a{display:block;padding:10px 0 30px;text-align:center;}
-            }
-            @media screen and (max-width: 320px) { 
-                /*아이폰*/
-                #content .description{padding-top:26px;width:100%;text-align:center;line-height:28px;}
-                #content .description h1{padding-bottom:460px;}
-                #content .description h2{margin-top:20px;font-size:25px;}
-                #content .description p{padding-left:35px;text-align:left;}
+            @media screen and (max-width: 767px) {
+				#top-bar{height:10px;margin-bottom:40px;}
+
+				#content{height:550px;padding-left:35px;padding-right:35px;}
+
+	            #content .intro{float:none;width:auto;line-height: 22px;margin:0 auto;}
+	            #content .intro h1{padding-bottom:28px;}
+	            #content .intro h2{margin-top:28px;font-size:25px;}
+	            #content .intro p{margin-top:2px;margin-bottom:6px;font-size:14px;color:#666;}
+
+				#preview {float:none; margin-top:40px;text-align:center;}
+				#preview img{width:165px;margin:0 auto;}
+
+				#footer .inner {float:none;width:250px;  margin:0 auto;padding-top: 210px; text-align:center;}
+				#footer .inner .app {float:none;margin-bottom: 29px;margin-right: 0px;}
+				
+				#sns {margin-bottom:50px;}
+				#sns a {}
+				
+				#footer .inner ul li:last-child {margin-right:0px;}
             }
         </style>
     </head>
     <body>
         <div id="wrap">
-            <div class="top-bar"></div><!-- design -->
+            <div id="top-bar"></div><!-- design -->
 
-            <div id="body">
-                <section id="content">
-                    <div class="img">
-                        <img src="/public/img/img_youpeat.png" alt="">
-                    </div>
-                    <div class="description">
-                        <h1><a href="/"><img src="/public/img/logo_youpeat.png" alt="YOUPEAT"></a></h1>
-                        <h2>Create Your Playlists!</h2>
-                        <p>Save your searching time.<br>Put your tastes in the playlists.<br>The fast and easy way to watch your favorite Youtube videos.</p>
-                    </div>
-                </section>    
+            <div id="content">
+				
+				<div class="intro">
+					<h1><img id="logo" src="/public/img/mobile/logo_m.png" alt="YOUPEAT" width="169px" height="116px;"></h1>
+					<h2>Create Your Playlists!</h2>
+					<p>Save your searching time.<br>Put your tastes in the playlists.<br>The fast and easy way to watch your favorite Youtube videos.</p>
+				</div>
+
+				<div id="preview">
+					<img src="/public/img/img_youpeat.png" alt="iPhone">
+				</div>
+
             </div>
-            <footer id="footer">
-                <div class="inner">
-                    <ul>
-                        <li class="app"><a href="#"><img src="/public/img/btn_appstore.png" alt="앱다운로드"></a></li>
-                        <li><a href="http://facebook.com/youpeat" target="_blank"><img src="/public/img/btn_f.png" alt="페이스북"></a></li>
-                        <li><a href="http://twitter.com/youpeat" target="_blank"><img src="/public/img/btn_t.png" alt="트위터"></a></li>
-                        <li><a href="http://instagram.com/youpeat" target="_blank"><img src="/public/img/btn_i.png" alt="인스타그램"></a></li>
-                        <li><a href="mailto:hello@youpeat.me" target="_blank"><img src="/public/img/btn_m.png" alt="이메일"></a></li>
-                    </ul>
-                    <a href="http://joyflus.com">&copy; joyflus</a>
-                </div>
-            </footer>
         </div>
+		<div id="footer" >
+			<div class="inner">
+				<div class="app">
+					<a href="https://itunes.apple.com/app/youpeat/id696538956?mt=8"><img src="/public/img/btn_appstore.png" alt="Appstore"></a>
+				</div>
+				
+				<div id="sns">
+					<a href="http://facebook.com/youpeat" target="_blank"><img src="/public/img/mobile/sns1_m.png" style="max-width: 48px;" alt="facebook"></a>
+					<a href="http://twitter.com/youpeat" target="_blank"><img src="/public/img/mobile/sns2_m.png" style="max-width: 48px;" alt="twitter"></a>
+					<a href="http://instagram.com/youpeat" target="_blank"><img src="/public/img/mobile/sns3_m.png" style="max-width: 48px;" alt="instagram"></a>
+					<a href="mailto:hello@youpeat.me" target="_blank"><img src="/public/img/mobile/sns4_m.png" style="max-width: 48px;" alt="email"></a>
+				</div>
+
+			</div>
+			<div id="copyright">
+				<a href="http://joyflus.com">&copy; joyflus</a>
+			</div>
+		</div>
     </body>
 </html>
